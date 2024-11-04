@@ -26,10 +26,6 @@ public class MemberPrefer extends BaseEntity {
     private FoodCategory foodCategory;
 
 
-
-
-
-
 }
 
 

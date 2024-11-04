@@ -4,34 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bdc3432-a03f-40b9-83d5-766f0a3ea001" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mju_umc/mju_umc/MjuUmcApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mju_umc/mju_umc/domain/FoodCategory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mju_umc/mju_umc/domain/Member.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mju_umc/mju_umc/domain/Mission.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mju_umc/mju_umc/domain/Region.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mju_umc/mju_umc/domain/Review.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mju_umc/mju_umc/domain/Store.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mju_umc/mju_umc/domain/Terms.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mju_umc/mju_umc/domain/base/BaseEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mju_umc/mju_umc/domain/enums/Gender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mju_umc/mju_umc/domain/enums/MemberStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mju_umc/mju_umc/domain/enums/MissionStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mju_umc/mju_umc/domain/enums/SocialType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mju_umc/mju_umc/domain/image/ReviewImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mju_umc/mju_umc/domain/mapping/MemberAgree.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mju_umc/mju_umc/domain/mapping/MemberMission.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mju_umc/mju_umc/domain/mapping/MemberPrefer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/mju_umc/mju_umc/MjuUmcApplicationTests.java" beforeDir="false" />
+    <list default="true" id="0bdc3432-a03f-40b9-83d5-766f0a3ea001" name="Changes" comment="[REFACTOR]코드 위치 수정">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/MjuUmcApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/MjuUmcApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,12 +23,7 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="mju_umc" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -84,15 +54,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager">
     <configuration name="MjuUmcApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="mju_umc.mju_umc.MjuUmcApplication" />
-      <module name="mju_umc.main" />
+      <option name="MAIN_CLASS_NAME" value="MjuUmcApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="mju_umc.mju_umc.*" />
@@ -118,7 +87,30 @@
       <option name="presentableId" value="Default" />
       <updated>1729839734853</updated>
     </task>
+    <task id="LOCAL-00001" summary="[REFACTOR]코드 위치 수정">
+      <created>1730378307498</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1730378307498</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[REFACTOR]코드 위치 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="[REFACTOR]코드 위치 수정" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

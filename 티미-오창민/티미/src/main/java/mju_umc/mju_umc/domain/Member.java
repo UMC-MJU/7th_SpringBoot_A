@@ -10,6 +10,7 @@ import mju_umc.mju_umc.domain.enums.SocialType;
 import mju_umc.mju_umc.domain.mapping.MemberAgree;
 import mju_umc.mju_umc.domain.mapping.MemberMission;
 import mju_umc.mju_umc.domain.mapping.MemberPrefer;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ public class Member extends BaseEntity {
     @Column(nullable = false, length = 50)
     private String email;
 
+    @ColumnDefault("0")
     private Integer point;
 
     @Enumerated(EnumType.STRING)
