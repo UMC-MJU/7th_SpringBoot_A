@@ -1,0 +1,8 @@
+services:
+  mysql:
+    image: 'mysql:latest'
+    environment:
+      - 'MYSQL_DATABASE=7th_Springboot'
+      - 'MYSQL_ROOT_PASSWORD=root'
+    ports:
+      - '3306:3306'
