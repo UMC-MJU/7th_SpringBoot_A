@@ -1,17 +1,15 @@
-package com.umcpractice.chapter_5.domain.inquiry.entity;
+package com.umcpractice.chapter_5.domain.terms.entity;
 
 import com.umcpractice.chapter_5.common.BaseEntity;
-import com.umcpractice.chapter_5.domain.user.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
-
 
 @Entity
 @Getter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Inquiry extends BaseEntity {
+public class Terms extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,9 +19,8 @@ public class Inquiry extends BaseEntity {
     private String title;
 
     @Column(nullable = false)
-    private String type;
+    private String body;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @Column(nullable = false)
+    private boolean optional;
 }

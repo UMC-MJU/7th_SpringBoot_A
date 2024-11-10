@@ -1,8 +1,8 @@
-package com.umcpractice.chapter_5.domain.review.entity;
+package com.umcpractice.chapter_5.domain.member_mission.entity;
 
 import com.umcpractice.chapter_5.common.BaseEntity;
 import com.umcpractice.chapter_5.domain.member.entity.Member;
-import com.umcpractice.chapter_5.domain.store.entity.Store;
+import com.umcpractice.chapter_5.domain.mission.entity.Mission;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,26 +11,20 @@ import lombok.*;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Review extends BaseEntity {
+public class MemberMission extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String content;
-
-    @Column(nullable = false)
-    private String body;
-
-    @Column(nullable = false)
-    private float score;
+    private String status;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "member_id")
     private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "store_id")
-    private Store store;
+    @JoinColumn(name = "mission_id")
+    private Mission mission;
 }

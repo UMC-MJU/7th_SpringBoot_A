@@ -1,12 +1,11 @@
 package com.umcpractice.chapter_5.domain.mission.entity;
 
 import com.umcpractice.chapter_5.common.BaseEntity;
-import com.umcpractice.chapter_5.domain.restaurant.entity.Restaurant;
-import com.umcpractice.chapter_5.domain.user.entity.User;
+import com.umcpractice.chapter_5.domain.store.entity.Store;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -19,17 +18,16 @@ public class Mission extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "is_verified")
-    private boolean isVerified;
+    @Column(nullable = false)
+    private int reward;
 
-    @Column(name = "complete_at")
-    private LocalDateTime completeAt;
+    @Column(nullable = false)
+    private Date deadline;
+
+    @Column(nullable = false, name = "misssion_spec")
+    private String missionSpec;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "restaurant_id")
-    private Restaurant restaurant;
+    @JoinColumn(name = "store_id")
+    private Store store;
 }

@@ -1,5 +1,6 @@
-package com.umcpractice.chapter_5.domain.restaurant.entity;
+package com.umcpractice.chapter_5.domain.region.entity;
 
+import com.umcpractice.chapter_5.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,7 +9,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Restaurant {
+public class Region extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,13 +17,4 @@ public class Restaurant {
 
     @Column(nullable = false)
     private String name;
-
-    @Column(nullable = false)
-    private String type;
-
-    @Column(nullable = false)
-    private String address;
-
-    @Column(name = "minimum_price", nullable = false)
-    private Long minPrice;
 }
