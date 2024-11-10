@@ -18,9 +18,6 @@ public class Review extends BaseEntity {
     private Long id;
 
     @Column(nullable = false)
-    private String content;
-
-    @Column(nullable = false)
     private String body;
 
     @Column(nullable = false)

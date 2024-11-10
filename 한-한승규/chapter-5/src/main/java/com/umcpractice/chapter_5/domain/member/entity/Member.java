@@ -20,7 +20,7 @@ public class Member {
     private String name;
 
     @Column(nullable = false)
-    private Date gender;
+    private String gender;
 
     @Column(nullable = false)
     private String age;
