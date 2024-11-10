@@ -3,7 +3,6 @@ package com.umcpractice.chapter_5.domain.member.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
 
 @Entity
 @Getter
