@@ -22,6 +22,7 @@ public class StoreQueryServiceImpl implements StoreQueryService {
 
 
     //저장하는 메소드
+    @Transactional
     public void saveStore(Store store) {
         storeRepository.save(store);
     }

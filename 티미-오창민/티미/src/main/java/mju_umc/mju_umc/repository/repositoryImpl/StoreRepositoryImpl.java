@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import mju_umc.mju_umc.domain.QStore;
 import mju_umc.mju_umc.domain.Store;
 import mju_umc.mju_umc.repository.StoreRepositoryCustom;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

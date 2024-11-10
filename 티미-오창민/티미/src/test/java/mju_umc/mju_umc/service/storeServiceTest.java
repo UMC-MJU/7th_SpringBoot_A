@@ -22,22 +22,20 @@ public class storeServiceTest {
 
     @Test
     public void findByNameAndNameTest() {
-        Store store = new Store(1l, "test", "test", 0.0f, null);
-        storeQueryService.saveStore(store);
-        Store store2 = new Store(2l, "요아정", "test", 4.0f, null);
-        storeQueryService.saveStore(store2);
-        Store store3 = new Store(3l, "오우아", "test", 4.0f, null);
-        storeQueryService.saveStore(store3);
-        Store store4 = new Store(4l, "요아정", "test", 0.0f, null);
-        storeQueryService.saveStore(store4);
-        Store store5 = new Store(5l, "요아정", "test", 5.0f, null);
-        storeQueryService.saveStore(store5);
+        //given
+        Long beforeSave = storeRepository.count();
+        Store store = new Store(beforeSave+1, "요아정", "test", 4.0f, null);
 
-        Assertions.assertThat(storeRepository.count()).isEqualTo(5);
+        //when
+        storeQueryService.saveStore(store);
+        //then
+        //저장된 개수만큼 목록이 증가해야 패스 -> save 테스트
+        Assertions.assertThat(storeRepository.count()).isEqualTo(beforeSave+1);
 
         //이름이 요아정이고 , 4.0 이상인 모음
+        //기존 2 + 1 = 3개이여야 한다.
         List<Store> findStore = storeQueryService.findStoresByNameAndScore("요아정", 4.0f);
-        Assertions.assertThat(findStore.size()).isEqualTo(2);
+        Assertions.assertThat(findStore.size()).isEqualTo(3);
 
     }
 }
