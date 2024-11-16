@@ -4,6 +4,7 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import mju_umc.mju_umc.domain.*;
 import mju_umc.mju_umc.domain.enums.MissionStatus;
+import mju_umc.mju_umc.domain.mapping.QMemberMission;
 import mju_umc.mju_umc.repository.MissionRepositoryCustom;
 import org.springframework.stereotype.Repository;
 
@@ -14,20 +15,21 @@ import java.util.List;
 public class MissionRepositoryImpl implements MissionRepositoryCustom {
     private final JPAQueryFactory jpaQueryFactory;//쿼리 자동 생성
     private final QMission mission = QMission.mission;//미션 Q객체
-    private final QStore store = QStore.store;//상점 Q객체
-    private final QRegion qRegion = QRegion.region;//지역 Q객체
-
-
+    private final QMemberMission memberMission = QMemberMission.memberMission;
+    private final QMember qMember = QMember.member;
     //구현 시작
     @Override
-    public List<Mission> getClearOrProgressMissionByMember(MissionStatus status, Member member) {
+    public List<Mission> getMissionsByMemberAndStatus(MissionStatus status, Member member) {
         List<Mission> missions = jpaQueryFactory
-                .selectFrom(mission)
-                .where(mission.missionSpec.eq(status)) //상태가 같은 미션만 조회
-                .offset(0) //시작페이지
-                .limit(3) //페이지당 최대 3건 조회
+                .select(mission)
+                .from(memberMission)
+                .join(memberMission.mission, mission)
+                .join(memberMission.member, qMember)
+                .where(memberMission.status.eq(status),
+                        memberMission.member.eq(member))
+                .offset(0)
+                .limit(5)
                 .fetch();
-
         return missions;
     }
 

@@ -41,14 +41,13 @@ public class Member extends BaseEntity {
     private LocalDate inactiveDate;
 
     @Column(nullable = false, length = 50)
-    @ColumnDefault("emailDefault@test.com")
     private String email;
 
     @ColumnDefault("0")
     private Integer point;
 
-    @ColumnDefault("010-0000-0000")
-    private String phone_num;
+    @Builder.Default
+    private String phone_num = "010-0000-0000";
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(10)")
@@ -68,6 +67,7 @@ public class Member extends BaseEntity {
     private List<MemberPrefer> memberPreferList = new ArrayList<>();
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    @Builder.Default
     private List<Review> reviewList = new ArrayList<>();
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)

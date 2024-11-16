@@ -26,8 +26,6 @@ public class Mission extends BaseEntity {
 
     private LocalDate deadline;
 
-    @Enumerated(value = EnumType.STRING)
-    private MissionStatus missionSpec;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
@@ -36,7 +34,5 @@ public class Mission extends BaseEntity {
     @OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
     private List<MemberMission> memberMissionList = new ArrayList<>();
 
-    public void setMember(MemberMission memberMission) {
-        this.memberMissionList.add(memberMission);
-    }
+
 }

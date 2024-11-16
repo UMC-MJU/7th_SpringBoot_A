@@ -7,6 +7,6 @@ import mju_umc.mju_umc.domain.enums.MissionStatus;
 import java.util.List;
 
 public interface MissionQueryService {
-    List<Mission> getClearOrProgressMissionByMember(MissionStatus status, Member member);
+    List<Mission> getMissionsByMemberAndStatus(MissionStatus status, Member member);
 
 }

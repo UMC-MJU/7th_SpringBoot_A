@@ -19,8 +19,8 @@ public class MissionQueryServiceImpl implements MissionQueryService {
     private final MissionRepository missionRepository; //jpa 기본 리포지토리와 커스텀한 메소드까지 가져오기
 
     @Override
-    public List<Mission> getClearOrProgressMissionByMember(MissionStatus status, Member member) {
-        List<Mission> missions = missionRepository.getClearOrProgressMissionByMember(status, member);
+    public List<Mission> getMissionsByMemberAndStatus(MissionStatus status, Member member) {
+        List<Mission> missions = missionRepository.getMissionsByMemberAndStatus(status, member);
         return missions;
     }
 

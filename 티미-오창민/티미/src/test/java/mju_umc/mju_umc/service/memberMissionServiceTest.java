@@ -5,8 +5,10 @@ import mju_umc.mju_umc.domain.Member;
 import mju_umc.mju_umc.domain.Mission;
 import mju_umc.mju_umc.domain.Region;
 import mju_umc.mju_umc.domain.enums.Gender;
+import mju_umc.mju_umc.domain.enums.MissionStatus;
 import mju_umc.mju_umc.domain.mapping.MemberMission;
 import mju_umc.mju_umc.repository.MemberMissionRepository;
+import mju_umc.mju_umc.repository.MemberRepository;
 import mju_umc.mju_umc.service.serviceIml.MemberMissionServiceImpl;
 import mju_umc.mju_umc.service.serviceIml.MemberServiceImpl;
 import mju_umc.mju_umc.service.serviceIml.MissionQueryServiceImpl;
@@ -20,8 +22,6 @@ import java.util.List;
 @SpringBootTest
 @Transactional
 public class memberMissionServiceTest {
-    @Autowired
-    MemberMissionRepository memberMissionRepository;
     @Autowired
     MemberMissionServiceImpl memberMissionService;
     @Autowired
@@ -43,21 +43,25 @@ public class memberMissionServiceTest {
                 .build();
         //테스트 회원 저장
         memberService.saveMember(member);
-
         //회원에 미션 부여 -> 맴버 미션 생성 및, 연관관계 매핑
         List<Mission> allMission = missionService.getAllMission();
         for (Mission m : allMission) {
             //멤버 미션 생성 및 연관관계 메핑
 
             //맴버 미션 객체 생성
-            MemberMission memberMission = MemberMission.builder().mission(m).member(member).build();
+            MemberMission memberMission = MemberMission.builder()
+                    .mission(m)
+                    .status(MissionStatus.CHALLENGING) //4개의 미션에 대해 멤버 미션 모두 challenging 상태로 할당
+                    .member(member)
+                    .build();
 
             //맴버 미션 객체 저장
-            memberMissionService.saveMemberMission(memberMission);
+            memberMissionService.saveMemberMission(memberMission, member);
 
             //연관관계 매핑
-            member.setMission(memberMission);
-            m.setMember(memberMission);
+//
+//            member.setMission(memberMission);
+//            m.setMember(memberMission);
         }
         Region region = Region.builder().name("서울").build(); //서울 지역 생성
 
@@ -70,6 +74,6 @@ public class memberMissionServiceTest {
         //각 상점의 지역은 모두 서울이다. 따라서 4개의 미션이 있다.
         //그중 challenging인 상태는, 1,2 미션 두 개이다.
         //따라서 결과는 2개여야 한다.
-        Assertions.assertThat(findMissions.size()).isEqualTo(2);
+        Assertions.assertThat(findMissions.size()).isEqualTo(4);
     }
 }

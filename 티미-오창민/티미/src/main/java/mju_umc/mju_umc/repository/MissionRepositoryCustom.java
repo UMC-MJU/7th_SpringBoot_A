@@ -12,7 +12,7 @@ public interface MissionRepositoryCustom {
 
     //진행중,진행 완료한 미션을 모아서 보는 쿼리(페이지 포함)
     //이름을 어떻게 지어야 할까..
-    List<Mission> getClearOrProgressMissionByMember(MissionStatus status, Member member);
+    List<Mission> getMissionsByMemberAndStatus(MissionStatus status, Member member);
 
 
 }

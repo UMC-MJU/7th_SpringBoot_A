@@ -30,11 +30,12 @@ public class MemberMissionRepositoryImpl implements MemberMissionRepositoryCusto
                 .join(mission.store, store)
                 .join(store.region, qRegion)
                 .where(qRegion.name.like(region.getName()), //현재 가능한 지역, like 비교 사용
-                        mission.missionSpec.eq(MissionStatus.CHALLENGING)) //도전이 가능한 미션
+                        memberMission.status.eq(MissionStatus.CHALLENGING)) //도전이 가능한 미션
                 .offset(0) //시작 페이징
-                .limit(3)//페이지당 최대 3건 조회
+                .limit(5)//페이지당 최대 5건 조회 -> 와 이거 땜에 3개였구나..
                 .fetch();//여러개의 응답을 받으니까 fetchOne이 아니라,fetch를 사용
 
         return findMemberMissions;
     }
+
 }
