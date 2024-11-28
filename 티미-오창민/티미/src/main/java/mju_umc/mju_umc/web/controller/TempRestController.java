@@ -2,7 +2,7 @@ package mju_umc.mju_umc.web.controller;
 
 import lombok.RequiredArgsConstructor;
 import mju_umc.mju_umc.converter.TempConverter;
-import mju_umc.mju_umc.response.ApiResponse;
+import mju_umc.mju_umc.response.exception.handler.ApiResponse;
 import mju_umc.mju_umc.service.TempQueryService;
 import mju_umc.mju_umc.web.dto.TempResponse;
 import org.springframework.web.bind.annotation.GetMapping;
