@@ -15,22 +15,22 @@ public class Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
-
-	@Bean
-	public CommandLineRunner run(ApplicationContext ctx) {
-
-		return args-> {
-		StoreQueryService storeQueryService = ctx.getBean(StoreQueryService.class);
-
-		String name = "요아정";
-		Float score = 4.0f;
-
-		System.out.println("Executing findStoresByNameAndScore with parameters");
-		System.out.println("Name : " + name);
-		System.out.println("Score : " + score);
-
-		storeQueryService.findAllStoresByNameAndScore(name, score)
-				.forEach(System.out::println);
-	};
-	}
+//
+//	@Bean
+//	public CommandLineRunner run(ApplicationContext ctx) {
+//
+//		return args-> {
+//		StoreQueryService storeQueryService = ctx.getBean(StoreQueryService.class);
+//
+//		String name = "요아정";
+//		Float score = 4.0f;
+//
+//		System.out.println("Executing findStoresByNameAndScore with parameters");
+//		System.out.println("Name : " + name);
+//		System.out.println("Score : " + score);
+//
+//		storeQueryService.findAllStoresByNameAndScore(name, score)
+//				.forEach(System.out::println);
+//	};
+//	}
 }

@@ -3,6 +3,7 @@ package umc.spring.repository.memberRepository;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+
 import umc.spring.domain.QMember;
 import umc.spring.dto.MemberDTO;
 import umc.spring.dto.QMemberDTO;
@@ -27,5 +28,8 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom{
                 .from(member)
                 .where(member.id.eq(memberId))
                 .fetchOne();
+
     }
+
+
 }

@@ -33,15 +33,13 @@ public class QMember extends EntityPathBase<Member> {
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public final DatePath<java.time.LocalDate> inactivateDate = createDate("inactivateDate", java.time.LocalDate.class);
+    public final DatePath<java.time.LocalDate> inactiveDate = createDate("inactiveDate", java.time.LocalDate.class);
 
     public final ListPath<umc.spring.domain.mapping.MemberAgree, umc.spring.domain.mapping.QMemberAgree> memberAgreeList = this.<umc.spring.domain.mapping.MemberAgree, umc.spring.domain.mapping.QMemberAgree>createList("memberAgreeList", umc.spring.domain.mapping.MemberAgree.class, umc.spring.domain.mapping.QMemberAgree.class, PathInits.DIRECT2);
 
     public final ListPath<umc.spring.domain.mapping.MemberMission, umc.spring.domain.mapping.QMemberMission> memberMissionList = this.<umc.spring.domain.mapping.MemberMission, umc.spring.domain.mapping.QMemberMission>createList("memberMissionList", umc.spring.domain.mapping.MemberMission.class, umc.spring.domain.mapping.QMemberMission.class, PathInits.DIRECT2);
 
     public final ListPath<umc.spring.domain.mapping.MemberPrefer, umc.spring.domain.mapping.QMemberPrefer> memberPreferList = this.<umc.spring.domain.mapping.MemberPrefer, umc.spring.domain.mapping.QMemberPrefer>createList("memberPreferList", umc.spring.domain.mapping.MemberPrefer.class, umc.spring.domain.mapping.QMemberPrefer.class, PathInits.DIRECT2);
-
-    public final EnumPath<umc.spring.domain.enums.MemberStatus> memberStatus = createEnum("memberStatus", umc.spring.domain.enums.MemberStatus.class);
 
     public final StringPath name = createString("name");
 
@@ -52,6 +50,8 @@ public class QMember extends EntityPathBase<Member> {
     public final EnumPath<umc.spring.domain.enums.SocialType> socialType = createEnum("socialType", umc.spring.domain.enums.SocialType.class);
 
     public final StringPath specAddress = createString("specAddress");
+
+    public final EnumPath<umc.spring.domain.enums.MemberStatus> status = createEnum("status", umc.spring.domain.enums.MemberStatus.class);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> updatedAt = _super.updatedAt;
