@@ -11,6 +11,8 @@ import mju_umc.mju_umc.domain.mapping.MemberAgree;
 import mju_umc.mju_umc.domain.mapping.MemberMission;
 import mju_umc.mju_umc.domain.mapping.MemberPrefer;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,6 +24,8 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // 파라미터가 없는 기본 생성자를 생성
 //access= PRIVATE는 해당 클래스 내부에서만 생성자에 접근 가능
 @AllArgsConstructor // 모든 필드 값을 파라미터로 받는 생성자를 생성
+@DynamicInsert // null인 경우에는 쿼리를 안날린다. -> 디폴트 값으로
+@DynamicUpdate // null인 경우에는 쿼리를 안날린다. => 디폴트 값으로
 public class Member extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,7 +44,6 @@ public class Member extends BaseEntity {
 
     private LocalDate inactiveDate;
 
-    @Column(nullable = false, length = 50)
     private String email;
 
     @ColumnDefault("0")
@@ -56,6 +59,9 @@ public class Member extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private SocialType socialType;
 
+    //컬럼값으로 ACTIVE를 디폴트 값으로 했지만, 실제 DB에는 NULL로 들어간다.
+    //JPA에서는 기본 수정은 전체 필드를 업데이트 하는 방식
+    //@DynamicInsert와 @DynamicUpdate를 이용해서 해결 가능
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(15) DEFAULT 'ACTIVE'")
     private MemberStatus status;
@@ -75,8 +81,6 @@ public class Member extends BaseEntity {
     private List<MemberMission> memberMissionList = new ArrayList<>();
 
 
-    //연관 관계 편의 메소드
-    public void setMission(MemberMission memberMission) {
-        this.memberMissionList.add(memberMission);
-    }
+
+
 }

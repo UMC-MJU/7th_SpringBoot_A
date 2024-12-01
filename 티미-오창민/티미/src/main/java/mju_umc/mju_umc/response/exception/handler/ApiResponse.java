@@ -1,4 +1,4 @@
-package mju_umc.mju_umc.response;
+package mju_umc.mju_umc.response.exception.handler;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

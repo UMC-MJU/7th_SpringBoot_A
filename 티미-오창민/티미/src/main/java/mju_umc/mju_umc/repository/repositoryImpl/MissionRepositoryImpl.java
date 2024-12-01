@@ -19,7 +19,7 @@ public class MissionRepositoryImpl implements MissionRepositoryCustom {
     private final QMember qMember = QMember.member;
     //구현 시작
     @Override
-    public List<Mission> getMissionsByMemberAndStatus(MissionStatus status, Member member) {
+    public List<Mission> getMissionsByMemberAndStatus(MissionStatus status, Member member, Integer page) {
         List<Mission> missions = jpaQueryFactory
                 .select(mission)
                 .from(memberMission)
@@ -27,8 +27,8 @@ public class MissionRepositoryImpl implements MissionRepositoryCustom {
                 .join(memberMission.member, qMember)
                 .where(memberMission.status.eq(status),
                         memberMission.member.eq(member))
-                .offset(0)
-                .limit(5)
+                .offset(page)
+                .limit(10)
                 .fetch();
         return missions;
     }

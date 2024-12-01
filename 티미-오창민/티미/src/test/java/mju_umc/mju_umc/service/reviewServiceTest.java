@@ -43,11 +43,9 @@ public class reviewServiceTest {
 
         //해당 리뷰 생성 메서드 를 실행 후 , 더티 체크를 통해, 자동으로 save 쿼리를 보내개 된다.
         //따라서 리뷰 생성 전 개수를 제대로 비교하기 위해서는, 해당 메서드 전에 개수를 세야 한다.
-        Review review = reviewService.createReview(savedMember.getId(), 1L, "BODY_TEST", 4.0f);
 
 
         //when
-        reviewRepository.save(review);
         long afterSave = reviewRepository.count();
 
 

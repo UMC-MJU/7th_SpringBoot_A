@@ -3,7 +3,7 @@ package mju_umc.mju_umc.response.exception;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
-import mju_umc.mju_umc.response.ApiResponse;
+import mju_umc.mju_umc.response.exception.handler.ApiResponse;
 import mju_umc.mju_umc.response.code.ErrorReasonDTO;
 import mju_umc.mju_umc.response.code.status.ErrorStatus;
 import org.springframework.http.HttpHeaders;
@@ -67,6 +67,7 @@ public class ExceptionAdvice extends ResponseEntityExceptionHandler {
         return handleExceptionInternalFalse(e, ErrorStatus._INTERNAL_SERVER_ERROR, HttpHeaders.EMPTY, ErrorStatus._INTERNAL_SERVER_ERROR.getHttpStatus(),request, e.getMessage());
     }
 
+    //우리가 만든 에러 처리에 대한 처리..?
     @ExceptionHandler(value = GeneralException.class)
     public ResponseEntity onThrowException(GeneralException generalException, HttpServletRequest request) {
         ErrorReasonDTO errorReasonHttpStatus = generalException.getErrorReasonHttpStatus();
