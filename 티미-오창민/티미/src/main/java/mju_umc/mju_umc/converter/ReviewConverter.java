@@ -4,11 +4,12 @@ import mju_umc.mju_umc.domain.Member;
 import mju_umc.mju_umc.domain.Review;
 import mju_umc.mju_umc.web.dto.review.ReviewRequestDto;
 import mju_umc.mju_umc.web.dto.review.ReviewResponseDto;
+import org.springframework.data.domain.Page;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 public class ReviewConverter {
 
@@ -37,6 +38,30 @@ public class ReviewConverter {
 
     }
 
+    //특정 가게의 리뷰 리스트 조회
+    public static ReviewResponseDto.ReviewPreViewDTO reviewPreViewDTO(Review review){
+        return ReviewResponseDto.ReviewPreViewDTO.builder()
+                .ownerNickname(review.getMember().getName())
+                .score(review.getScore())
+                .createdAt(review.getCreatedAt().toLocalDate())
+                .body(review.getTitle())
+                .build();
+    }
+    public static ReviewResponseDto.ReviewPreViewListDTO reviewPreViewListDTO(Page<Review> reviewList){
+
+        List<ReviewResponseDto.ReviewPreViewDTO> reviewPreViewDTOList = reviewList.stream()
+                .map(ReviewConverter::reviewPreViewDTO).collect(Collectors.toList());
+
+        return ReviewResponseDto.ReviewPreViewListDTO.builder()
+                .isLast(reviewList.isLast())
+                .isFirst(reviewList.isFirst())
+                .totalPage(reviewList.getTotalPages())
+                .totalElements(reviewList.getTotalElements())
+                .listSize(reviewPreViewDTOList.size())
+                .reviewList(reviewPreViewDTOList)
+                .build();
+    }
+
     public static Review toReview(ReviewRequestDto.addReview request) {
         //상점이랑, 멤버는 나중에 매핑 할 예정
         return Review.builder()
@@ -46,3 +71,6 @@ public class ReviewConverter {
 
 
 }
+
+
+

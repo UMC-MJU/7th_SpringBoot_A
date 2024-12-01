@@ -22,8 +22,13 @@ public class MemberMissionConverter {
     }
 
 
-
-
+    public static MemberMissionResponseDto.toCompleteResult toCompleteResult(MemberMission memberMission) {
+        return MemberMissionResponseDto.toCompleteResult
+                .builder()
+                .memberMissionId(memberMission.getId())
+                .editedStatus(memberMission.getStatus())
+                .build();
+    }
 
 
     public static MemberMission toMemberMission(MemberMissionRequestDto.addMemberMission request) {

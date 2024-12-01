@@ -44,7 +44,7 @@ public class MissionQueryServiceImpl implements MissionQueryService {
         //미션 생성 -> 아직 상점은 할당 안됨
         Mission mission = MissionConverter.toMission(request);
         //상점 조회
-        Store store = storeRepository.findById(request.getStoreId()).get();
+        Store store = storeRepository.findById(request.getStoreId()).orElseThrow(() -> new StoreHandler(ErrorStatus.STORE_NOT_FOUND));
         //연관관계 매핑
         mission.setStore(store);
         //저장 및 반환

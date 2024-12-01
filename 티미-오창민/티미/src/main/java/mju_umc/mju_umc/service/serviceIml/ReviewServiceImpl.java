@@ -15,6 +15,7 @@ import mju_umc.mju_umc.response.exception.handler.StoreHandler;
 import mju_umc.mju_umc.service.ReviewService;
 import mju_umc.mju_umc.web.dto.review.ReviewRequestDto;
 import mju_umc.mju_umc.web.dto.review.ReviewResponseDto;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -63,6 +64,15 @@ public class ReviewServiceImpl implements ReviewService {
     public List<Review> getReviewsByNameAndStore(Member member, Store store, Integer page) {
         return reviewRepository.findAllByMemberAndStore(member, store, PageRequest.of(page, 10)).stream().toList();
     }
+
+    @Override
+    public Page<Review> getReviewListByStore(Long storeId, Integer page) {
+        Store store = storeRepository.findById(storeId).orElseThrow(() -> new StoreHandler(ErrorStatus.STORE_NOT_FOUND));
+
+        Page<Review> reviewsByStore = reviewRepository.findAllByStore(store, PageRequest.of(page, 10));
+        return reviewsByStore;
+    }
+
 
 
 }

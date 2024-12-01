@@ -6,10 +6,13 @@ import mju_umc.mju_umc.converter.MemberMissionConverter;
 import mju_umc.mju_umc.domain.Member;
 import mju_umc.mju_umc.domain.Mission;
 import mju_umc.mju_umc.domain.Region;
+import mju_umc.mju_umc.domain.enums.MissionStatus;
 import mju_umc.mju_umc.domain.mapping.MemberMission;
 import mju_umc.mju_umc.repository.MemberMissionRepository;
 import mju_umc.mju_umc.repository.MemberRepository;
 import mju_umc.mju_umc.repository.MissionRepository;
+import mju_umc.mju_umc.response.code.status.ErrorStatus;
+import mju_umc.mju_umc.response.exception.handler.MemberMissionHandler;
 import mju_umc.mju_umc.service.MemberMissionService;
 import mju_umc.mju_umc.web.dto.memberMission.MemberMissionRequestDto;
 import org.springframework.stereotype.Service;
@@ -47,5 +50,16 @@ public class MemberMissionServiceImpl implements MemberMissionService {
         //저장 및 반환
         return memberMissionRepository.save(memberMission);
     }
+
+    @Override
+    public MemberMission toComplete(MemberMissionRequestDto.toComplete request) {
+        //멤버 미션 조회
+        MemberMission memberMission = memberMissionRepository.findById(request.getMemberMissionId()).orElseThrow(() ->
+                new MemberMissionHandler(ErrorStatus.MEMBER_MISSION_NOT_FOUND));
+        memberMission.editStatus(MissionStatus.COMPLETE); //성공으로 바꿔주기 -> 더티체킹으로 자동으로 수정될 것
+        return memberMission;
+
+    }
+
 
 }

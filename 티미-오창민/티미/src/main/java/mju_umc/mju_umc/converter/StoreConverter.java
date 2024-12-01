@@ -1,5 +1,6 @@
 package mju_umc.mju_umc.converter;
 
+import mju_umc.mju_umc.domain.Review;
 import mju_umc.mju_umc.domain.Store;
 import mju_umc.mju_umc.web.dto.store.StoreRequestDTO;
 import mju_umc.mju_umc.web.dto.store.StoreResponseDTO;
@@ -23,4 +24,6 @@ public class StoreConverter {
                 .name(request.getName())
                 .score(request.getScore()).build();
     }
+
+
 }

@@ -8,10 +8,7 @@ import mju_umc.mju_umc.response.exception.handler.ApiResponse;
 import mju_umc.mju_umc.service.MemberMissionService;
 import mju_umc.mju_umc.web.dto.memberMission.MemberMissionRequestDto;
 import mju_umc.mju_umc.web.dto.memberMission.MemberMissionResponseDto;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/memberMission")
@@ -25,5 +22,9 @@ public class memberMissionRestController {
         return ApiResponse.onSuccess(MemberMissionConverter.toAddMemberMissionResult(memberMission));
     }
 
-
+    @PatchMapping("/members/toComplete")
+    public ApiResponse<MemberMissionResponseDto.toCompleteResult> toComplete(@RequestBody @Valid MemberMissionRequestDto.toComplete request) {
+        MemberMission editedMemberMission = memberMissionService.toComplete(request);
+        return ApiResponse.onSuccess(MemberMissionConverter.toCompleteResult(editedMemberMission));
+    }
 }
