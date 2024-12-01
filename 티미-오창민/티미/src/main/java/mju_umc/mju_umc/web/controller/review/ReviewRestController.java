@@ -42,11 +42,13 @@ public class ReviewRestController {
 
 //    //컨트롤러 단에서 필요한 정보를 요청하고, 데이터를 찾아 변환해 반환
     //위의 서비스 메소드 안에서 한번에 이루어지는 것과 같은 쿼리가 나가지만, 좀더 역할을 분리해서 안정적으로 하였다.
-    @GetMapping("reviewsByController/{memberId}")
+    @GetMapping("reviews/{memberId}")
     public ApiResponse<ReviewResponseDto.GetReviewsResult> getReviewsByController(@PathVariable("memberId") Long memberId,@RequestParam("storeId") Long storeId, @CheckPage @RequestParam("page") Integer page) {
+        //page 정보 수정
+        int editPage = Math.min(0, page - 1); //1이상의 페이지면 -1 (페이징은 0부터 시작), 0이면 0 그대로 반환
         Member member = memberService.getMemberById(memberId);
         Store store = storeService.findStore(storeId);
-        List<Review> reviews = reviewService.getReviewsByNameAndStore(member, store, page);
+        List<Review> reviews = reviewService.getReviewsByNameAndStore(member, store, editPage);
         return ApiResponse.onSuccess(ReviewConverter.toGetReviewResult(reviews, member, store.getName()));
     }
 }

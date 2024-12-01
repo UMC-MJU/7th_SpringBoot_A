@@ -8,7 +8,7 @@ import mju_umc.mju_umc.web.dto.mission.MissionRequestDto;
 import java.util.List;
 
 public interface MissionQueryService {
-    List<Mission> getMissionsByMemberAndStatus(MissionStatus status, Member member);
-
+    List<Mission> getMissionsByMemberAndStatus(MissionStatus status, Member member, Integer page);
+    List<Mission> getMissionByStore(Long storeId, Integer page);
     Mission addMission(MissionRequestDto.addMission request);
 }

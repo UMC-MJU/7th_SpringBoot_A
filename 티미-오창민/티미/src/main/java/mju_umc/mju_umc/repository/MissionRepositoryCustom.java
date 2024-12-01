@@ -5,6 +5,7 @@ import mju_umc.mju_umc.domain.Mission;
 import mju_umc.mju_umc.domain.Region;
 import mju_umc.mju_umc.domain.enums.MissionStatus;
 
+import java.awt.print.Pageable;
 import java.util.List;
 
 public interface MissionRepositoryCustom {
@@ -12,7 +13,8 @@ public interface MissionRepositoryCustom {
 
     //진행중,진행 완료한 미션을 모아서 보는 쿼리(페이지 포함)
     //이름을 어떻게 지어야 할까..
-    List<Mission> getMissionsByMemberAndStatus(MissionStatus status, Member member);
+    List<Mission> getMissionsByMemberAndStatus(MissionStatus status, Member member, Integer page);
+
 
 
 }

@@ -10,6 +10,7 @@ import mju_umc.mju_umc.repository.FoodCategoryRepository;
 import mju_umc.mju_umc.repository.MemberRepository;
 import mju_umc.mju_umc.response.code.status.ErrorStatus;
 import mju_umc.mju_umc.response.exception.handler.FoodCategoryHandler;
+import mju_umc.mju_umc.response.exception.handler.MemberHandler;
 import mju_umc.mju_umc.service.MemberCommandService;
 import mju_umc.mju_umc.web.dto.member.MemberRequestDTO;
 import org.springframework.stereotype.Service;
@@ -52,5 +53,10 @@ public class MemberCommandServiceImpl implements MemberCommandService {
 
         //멤버 저장
         return memberRepository.save(newMember );
+    }
+
+    @Override
+    public Member findMember(Long memberId) {
+        return memberRepository.findById(memberId).orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
     }
 }
