@@ -35,4 +35,14 @@ public class Review extends BaseEntity {
     @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
     private List<ReviewImage> reviewImages = new ArrayList<>();
 
+    // 정적 팩토리 메서드
+    public static Review create(String title, Float score, Member member, Store store) {
+        return Review.builder()
+                .title(title)
+                .score(score)
+                .member(member)
+                .store(store)
+                .build();
+    }
 }
+

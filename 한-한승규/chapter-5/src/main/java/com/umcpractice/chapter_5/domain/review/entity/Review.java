@@ -1,10 +1,10 @@
 package com.umcpractice.chapter_5.domain.review.entity;
 
 import com.umcpractice.chapter_5.common.BaseEntity;
-import com.umcpractice.chapter_5.domain.user.entity.User;
+import com.umcpractice.chapter_5.domain.member.entity.Member;
+import com.umcpractice.chapter_5.domain.store.entity.Store;
 import jakarta.persistence.*;
 import lombok.*;
-
 
 @Entity
 @Getter
@@ -18,12 +18,16 @@ public class Review extends BaseEntity {
     private Long id;
 
     @Column(nullable = false)
-    private String content;
+    private String body;
 
-    @Column(name = "star_rating", nullable = false)
-    private int starRating;
+    @Column(nullable = false)
+    private float score;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "member_id")
+    private Member member;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "store_id")
+    private Store store;
 }

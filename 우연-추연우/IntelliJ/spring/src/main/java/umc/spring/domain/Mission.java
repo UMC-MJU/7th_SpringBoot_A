@@ -23,7 +23,6 @@ public class Mission extends BaseEntity {
     @Column(nullable = false)
     private Integer reward;
 
-    @Column(nullable = false)
     private LocalDate deadline;
 
     @Column(nullable = false)
