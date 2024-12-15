@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.MissingPathVariableException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -26,8 +27,6 @@ import java.util.Optional;
 @Slf4j
 @RestControllerAdvice(annotations = {RestController.class}) //@RestController 어노테이션이 붙은 모든 컨트롤러에서 발생하는 예외에 대해 적용
 public class ExceptionAdvice extends ResponseEntityExceptionHandler {
-
-
     @ExceptionHandler //에러를 특정하지 않았기 때문에, 모든 에러를 대상으로 한다.
     //ConstraintViolationException 에러 발생시 작동하는 에러 핸들러
     //주로 JPA에서 엔티티의 유효성 검사 제약 조건을 위배할 때 발생

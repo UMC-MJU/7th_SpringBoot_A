@@ -35,6 +35,8 @@ public enum ErrorStatus implements BaseErrorCode {
     //상점
     STORE_NOT_FOUND(HttpStatus.BAD_REQUEST, "STORE4001", "상점이 존재하지 않습니다."),
 
+    //리뷰 관련 응답
+    REVIEW_NOT_FOUND(HttpStatus.BAD_REQUEST, "REVIEW001", "잘못된 리뷰 아이디입니다."),
     //페이징 에러
     INVALID_PAGE(HttpStatus.BAD_REQUEST, "PAGE4001", "적절하지 않은 페이지입니다."),
     //테스트를 위한 응답

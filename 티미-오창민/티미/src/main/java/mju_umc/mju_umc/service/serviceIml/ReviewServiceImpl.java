@@ -11,6 +11,7 @@ import mju_umc.mju_umc.repository.ReviewRepository;
 import mju_umc.mju_umc.repository.StoreRepository;
 import mju_umc.mju_umc.response.code.status.ErrorStatus;
 import mju_umc.mju_umc.response.exception.handler.MemberHandler;
+import mju_umc.mju_umc.response.exception.handler.ReviewHandler;
 import mju_umc.mju_umc.response.exception.handler.StoreHandler;
 import mju_umc.mju_umc.service.ReviewService;
 import mju_umc.mju_umc.web.dto.review.ReviewRequestDto;
@@ -68,7 +69,6 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public Page<Review> getReviewListByStore(Long storeId, Integer page) {
         Store store = storeRepository.findById(storeId).orElseThrow(() -> new StoreHandler(ErrorStatus.STORE_NOT_FOUND));
-
         Page<Review> reviewsByStore = reviewRepository.findAllByStore(store, PageRequest.of(page, 10));
         return reviewsByStore;
     }

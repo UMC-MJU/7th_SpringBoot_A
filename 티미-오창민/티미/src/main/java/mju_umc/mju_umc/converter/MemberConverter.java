@@ -25,7 +25,6 @@ public class MemberConverter {
     //들어온 정보로 멤버를 생성 후, 맴버 리턴
     public static Member toMember(MemberRequestDTO.JoinDto request) {
         Gender gender = null; //성별 초기화 -> null
-
         switch (request.getGender()) { //사용자가 입력한 성별에 대해서
             case 1: //남자
                 gender = Gender.MALE;
@@ -44,6 +43,9 @@ public class MemberConverter {
                 .gender(gender)
                 .name(request.getName())
                 .memberPreferList(new ArrayList<>()) //리스트는 초기화 해야한다. -> 안하면 null로 될 걸?
+                .email(request.getEmail())
+                .password(request.getPassword())
+                .role(request.getRole())
                 .build();
 
     }

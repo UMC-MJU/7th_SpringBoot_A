@@ -6,6 +6,7 @@ import lombok.*;
 import mju_umc.mju_umc.domain.base.BaseEntity;
 import mju_umc.mju_umc.domain.enums.Gender;
 import mju_umc.mju_umc.domain.enums.MemberStatus;
+import mju_umc.mju_umc.domain.enums.Role;
 import mju_umc.mju_umc.domain.enums.SocialType;
 import mju_umc.mju_umc.domain.mapping.MemberAgree;
 import mju_umc.mju_umc.domain.mapping.MemberMission;
@@ -30,7 +31,6 @@ public class Member extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
 
     @Column(nullable = false, length = 20)
     private String name;
@@ -64,7 +64,15 @@ public class Member extends BaseEntity {
     //@DynamicInsert와 @DynamicUpdate를 이용해서 해결 가능
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(15) DEFAULT 'ACTIVE'")
-    private MemberStatus status;
+    private MemberStatus status; //탈퇴해도 DB에 저장할 수 있다.
+
+    @Enumerated(EnumType.STRING)
+    private Role role; //관리자 여부
+
+    //로그인 정보
+    @Column(nullable = false)
+    private String password;
+
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<MemberAgree> memberAgreeList = new ArrayList<>();
@@ -81,6 +89,9 @@ public class Member extends BaseEntity {
     private List<MemberMission> memberMissionList = new ArrayList<>();
 
 
-
+    //
+    public void encodePassword(String password) {
+        this.password = password;
+    }
 
 }
