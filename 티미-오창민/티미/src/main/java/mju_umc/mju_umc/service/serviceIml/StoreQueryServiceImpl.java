@@ -1,36 +1,54 @@
 package mju_umc.mju_umc.service.serviceIml;
 
 import lombok.RequiredArgsConstructor;
+import mju_umc.mju_umc.converter.StoreConverter;
+import mju_umc.mju_umc.domain.Region;
 import mju_umc.mju_umc.domain.Store;
+import mju_umc.mju_umc.repository.RegionRepository;
 import mju_umc.mju_umc.repository.StoreRepository;
+import mju_umc.mju_umc.response.code.status.ErrorStatus;
+import mju_umc.mju_umc.response.exception.handler.StoreHandler;
 import mju_umc.mju_umc.service.StoreQueryService;
+import mju_umc.mju_umc.web.dto.store.StoreRequestDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-@Transactional(readOnly = true)
+@Transactional
 public class StoreQueryServiceImpl implements StoreQueryService {
 
     //스프링 데이터 JPA에 제공하는 리포지토리를 가져온다.
     //가져오면서, 커스텀 리포지토리 인터페이스를 같이 가져오게 된다.
     //storerepository가 extends하고 있기 때문에..
     private final StoreRepository storeRepository;
+    private final RegionRepository regionRepository;
 
 
-    //저장하는 메소드
-    @Transactional
-    public void saveStore(Store store) {
-        storeRepository.save(store);
+    @Override
+    public Store findStore(Long id) {
+        return storeRepository.findById(id).orElseThrow(()-> new StoreHandler(ErrorStatus.STORE_NOT_FOUND));
+
+    }
+
+    public boolean existsById(Long id) {
+        return storeRepository.existsById(id);
     }
 
     @Override
-    public Optional<Store> findStore(Long id) {
-        Optional<Store> findStore = storeRepository.findById(id);
-        return findStore;
+    public Store joinStore(StoreRequestDTO.joinDTO request) {
+        //상점 생성 -> 생성되는 상점에는 아직 지역 할당 안됨
+        Store store = StoreConverter.toStore(request);
+        //요청에서 지역 아이디 조회 및 실제 지역 조회
+        //핸들러로 만약 오류 발생시 generalexception ->  nostoreerror 발생
+        Region region = regionRepository.findById(request.getRegionId()).orElseThrow(() -> new StoreHandler(ErrorStatus.STORE_NOT_FOUND));
+        //연관관계 매핑
+        store.setRegion(region);
+        //상점 저장 및 반환
+        return storeRepository.save(store);
+
     }
 
     @Override

@@ -28,6 +28,10 @@ public class Store extends BaseEntity {
     @JoinColumn(name = "region_id")
     private Region region;
 
+    public void setRegion(Region region) {
+        this.region = region;
+    }
+
     public String toString() {
         return "Store{" +
                 "id=" + id +

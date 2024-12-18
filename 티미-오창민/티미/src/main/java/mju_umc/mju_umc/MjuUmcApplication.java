@@ -8,6 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.util.List;
 
@@ -16,10 +18,10 @@ import java.util.List;
 @EnableJpaAuditing
 public class MjuUmcApplication {
 
+
 	public static void main(String[] args) {
 		SpringApplication.run(MjuUmcApplication.class, args);
 	}
-
 
 	@Bean
 	public CommandLineRunner run(ApplicationContext context) {
