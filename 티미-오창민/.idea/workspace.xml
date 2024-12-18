@@ -5,23 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bdc3432-a03f-40b9-83d5-766f0a3ea001" name="Changes" comment="[REFACTOR]코드 위치 수정">
-      <change afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/repository/MemberMissionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/repository/MissionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/repository/MissionRepositoryCustom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/repository/repositoryImpl/MissionRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/service/MissionQueryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/service/serviceIml/MemberMissionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/service/serviceIml/MemberServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/service/serviceIml/MissionQueryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/티미/src/test/java/mju_umc/mju_umc/service/missionServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/response/exception/handler/ReviewHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/security/Authentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/domain/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/domain/Mission.java" beforeDir="false" afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/domain/Mission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/domain/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/domain/enums/MissionStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/domain/enums/MissionStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/repository/repositoryImpl/StoreRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/repository/repositoryImpl/StoreRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/service/serviceIml/StoreQueryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/service/serviceIml/StoreQueryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/티미/src/test/java/mju_umc/mju_umc/service/storeServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/티미/src/test/java/mju_umc/mju_umc/service/storeServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/티미/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/티미/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/repository/ReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/response/code/status/ErrorStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/response/code/status/ErrorStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/response/exception/ExceptionAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/response/exception/ExceptionAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/service/serviceIml/MemberCommandServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/service/serviceIml/MemberCommandServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/service/serviceIml/ReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/티미/src/main/java/mju_umc/mju_umc/service/serviceIml/ReviewServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +34,17 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$/티미">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="mju_umc" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -53,6 +56,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -74,22 +78,40 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
   <component name="ProjectId" id="2nv3U3874FsI9bqerZAwVwHrewz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
-  </component>
-  <component name="RunManager" selected="Application.MjuUmcApplication (1)">
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.MjuUmcApplication.executor": "Run",
+    "git-widget-placeholder": "getReviews",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/mldhc/OneDrive/바탕 화면/UMC_티미/UMC_Timmy/티미-오창민/티미/build.gradle",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Spring Boot.MjuUmcApplication">
     <configuration name="MjuUmcApplication (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="mju_umc.mju_umc.MjuUmcApplication" />
       <module name="mju_umc.main" />
@@ -115,12 +137,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MjuUmcApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="mju_umc.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="mju_umc.mju_umc.MjuUmcApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mju_umc.mju_umc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MjuUmcApplication (1)" />
+        <item itemvalue="Spring Boot.MjuUmcApplication" />
         <item itemvalue="Application.MjuUmcApplication" />
+        <item itemvalue="Application.MjuUmcApplication (1)" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -130,6 +174,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729839734853</updated>
+      <workItem from="1733100503556" duration="1993000" />
     </task>
     <task id="LOCAL-00001" summary="[REFACTOR]코드 위치 수정">
       <created>1730378307498</created>
@@ -140,6 +185,9 @@
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
