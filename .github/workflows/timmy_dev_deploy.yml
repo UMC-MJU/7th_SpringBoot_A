@@ -1,0 +1,16 @@
+name: UMC Dev CI/CD Timmy'ver
+
+#워크플로우가 실행될 이벤트 정의 (언제 워크플로우가 실행되는 지)
+on:
+  pull_request:
+#    pr이 닫힐(closed) 때 워크 플로우가 실행된다.
+    types: [closed]
+#  수동으로 워크플로우를 실행할 수 있는 이벤트
+  workflow_dispatch:
+
+#워크플로우 내에서 실행될 작업을 정의
+jobs:
+  build:
+    runs-on: ubuntu-latest
+#pr이 merge 되었을 때, develop 브렌치로 머지 되었을 때만 실행된다.
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref = 'develop'
